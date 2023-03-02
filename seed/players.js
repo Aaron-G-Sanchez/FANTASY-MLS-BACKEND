@@ -1,6 +1,8 @@
 const db = require('../db')
 const { Player } = require('../models')
 const axios = require('axios')
+const dotenv = require('dotenv')
+dotenv.config()
 
 db.on('error', console.error.bind(console, 'MongoDB connetion error:'))
 
@@ -34,9 +36,8 @@ const main = async () => {
 
   const players = []
 
-  const apiToken = '?api_token=75KeS8f6rQcokyxsLBRdsXkuMgIOVoYJrKZFLMkmIs3kj1dgsktz826ebTpm'
   const seasonId = 20901
-  const teamIdResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/teams/season/${seasonId}${apiToken}`)
+  const teamIdResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/teams/season/${seasonId}?api_token=${process.env.TOKEN}`)
 
   
   const teams = teamIdResponse.data.data
@@ -48,7 +49,7 @@ const main = async () => {
   })
 
   for(let i = 0; i < teamIdArr.length; i++) {
-    const teamPlayersResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/teams/${teamIdArr[i]}${apiToken}&include=squad.player`)
+    const teamPlayersResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/teams/${teamIdArr[i]}?api_token=${process.env.TOKEN}&include=squad.player`)
 
     const currentTeam = teamPlayersResponse.data.data
     
