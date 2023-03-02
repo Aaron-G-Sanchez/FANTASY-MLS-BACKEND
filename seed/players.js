@@ -7,7 +7,7 @@ const main = async () => {
   const players = [
     {
       name: 'Aaron Sanchez',
-      commonName: 'A. Sanchez',
+      displayName: 'A. Sanchez',
       position: 'Midfielder',
       number: 12,
       team: 'Austin FC',
@@ -17,7 +17,7 @@ const main = async () => {
     },
     {
       name: 'Leone Varando',
-      commonName: 'L. Varando',
+      displayName: 'L. Varando',
       position: 'Defender',
       number: 69,
       team: 'DC United',
