@@ -6,8 +6,8 @@ db.on('error', console.error.bind(console, 'MongoDB connetion error:'))
 const main = async () => {
   const players = [
     {
-      name: 'Aaron Sanchez',
-      displayName: 'A. Sanchez',
+      displayName: 'Aaron Sanchez',
+      commonName: 'A. Sanchez',
       position: 'Midfielder',
       number: 12,
       team: 'Austin FC',
@@ -16,8 +16,8 @@ const main = async () => {
       rating: 6.9
     },
     {
-      name: 'Leone Varando',
-      displayName: 'L. Varando',
+      displayName: 'Leone Varando',
+      commonName: 'L. Varando',
       position: 'Defender',
       number: 69,
       team: 'DC United',
