@@ -2,7 +2,7 @@ const { Schema } = require('mongoose')
 
 const Player = new Schema(
   {
-    name: { type: String, required: true },
+    displayName: { type: String, required: true },
     commonName: { type: String, required: true },
     position: { type: String, required: true },
     number: { type: Number, required: true },
