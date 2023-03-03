@@ -39,7 +39,6 @@ const main = async () => {
   const seasonId = 20901
   const teamIdResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/teams/season/${seasonId}?api_token=${process.env.TOKEN}`)
 
-
   const teams = teamIdResponse.data.data
   
   const teamIdArr = []
@@ -61,15 +60,7 @@ const main = async () => {
       //   4: 'Forward'
       // }
 
-      let playerObject = {
-        displayName: '',
-        commonName: '',
-        position: '',
-        number: '',
-        team: '',
-        image: '',
-        rating: '',
-      }
+      let playerObject = {}
 
       let currentPlayer = currentTeam.squad.data[x]
 
@@ -88,8 +79,6 @@ const main = async () => {
       players.push(playerObject)
     }
   }
-
-  // console.log(players)
 
   await Player.insertMany(players)
   console.log('Seed has been planted!')
