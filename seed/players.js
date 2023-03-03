@@ -39,7 +39,7 @@ const main = async () => {
   const seasonId = 20901
   const teamIdResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/teams/season/${seasonId}?api_token=${process.env.TOKEN}`)
 
-  
+
   const teams = teamIdResponse.data.data
   
   const teamIdArr = []
@@ -79,7 +79,7 @@ const main = async () => {
         displayName: currentPlayerInfo.display_name,
         commonName: currentPlayerInfo.common_name,
         position: currentPlayer.position_id,
-        number: parseInt(currentPlayer.number) ? parseInt(currentPlayer.number) : 99,
+        number: currentPlayer.number,
         team: currentTeam.name,
         image: currentPlayerInfo.image_path,
         rating: parseFloat(currentPlayer.rating) ? parseFloat(currentPlayer.rating) : 0
