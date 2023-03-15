@@ -1,13 +1,11 @@
 const { Schema } = require('mongoose')
-const User = require('./User')
-const Team = require('./Team')
 
 const League = new Schema(
   {
     name: { type: String, required: true },
-    creator: User,
-    members: [User],
-    teams: [Team]
+    creator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    members: [{ type: Schema.Types.ObjectId, ref: 'User', required: false }],
+    teams: [{ type: Schema.Types.ObjectId, ref: 'Team', required: false }]
   },
   { timestamps: true }
 )
